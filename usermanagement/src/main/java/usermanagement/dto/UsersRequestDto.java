@@ -1,56 +1,28 @@
-package usermanagement.entity;
+package usermanagement.dto;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import usermanagement.entity.Gender;
 
-@Entity
-@Table(name = "users")
-public class Users {
+public class UsersRequestDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(nullable = false, unique = true, length = 50)
 	private String username;
-	
-	@Column(nullable = false, unique = true, length = 100)
 	private String email;
-	
-	@Column(nullable = false)
 	private String password;
-	
-	@Column(nullable = false, unique = true, length = 20)
 	private String mobile;
-	
-	@Column(nullable = false)
 	private LocalDate dob;
-	
-	@Enumerated(EnumType.STRING)
-	@Column(nullable = false, length = 20)
 	private Gender gender;
-
-	@Column(nullable = false, length = 500)
 	private String address;
-	
-	@Column(length = 500)
 	private String dpUrl;
-
-	public Users() {
+	
+	public UsersRequestDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(Long id, String username, String email, String password, String mobile, LocalDate dob, Gender gender,
-			String address, String dpUrl) {
+	public UsersRequestDto(Long id, String username, String email, String password, String mobile, LocalDate dob,
+			Gender gender, String address, String dpUrl) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -137,9 +109,10 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "Users [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
+		return "UsersRequestDto [id=" + id + ", username=" + username + ", email=" + email + ", password=" + password
 				+ ", mobile=" + mobile + ", dob=" + dob + ", gender=" + gender + ", address=" + address + ", dpUrl="
 				+ dpUrl + "]";
 	}
+	
 	
 }
